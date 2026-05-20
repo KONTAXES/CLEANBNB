@@ -1,4 +1,2 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+// Este archivo existe para compatibilidad — la config real está en next.config.js
+export { default } from './next.config.js'

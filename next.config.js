@@ -22,8 +22,7 @@ const nextConfig = {
   images: {
     remotePatterns: [{ protocol: 'https', hostname: '*.supabase.co' }]
   },
-  webpack: (config, { isServer }) => {
-    // face-api.js uses dynamic requires — suppress the webpack warning
+  webpack: (config) => {
     config.module = config.module ?? {}
     config.module.exprContextCritical = false
     return config
