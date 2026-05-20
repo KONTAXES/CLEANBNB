@@ -56,13 +56,12 @@ export async function middleware(request: NextRequest) {
 
     return supabaseResponse
   } catch (e) {
-    // Si Supabase falla, redirigir al login
     const { pathname } = request.nextUrl
-    if (pathname.startsWith('/login')) return NextResponse.next()
+    if (pathname.startsWith('/login') || pathname.startsWith('/auth')) return NextResponse.next()
     return NextResponse.redirect(new URL('/login', request.url))
   }
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|icons|models|manifest.json|sw.js|workbox).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|icons|models|manifest.json|sw.js|workbox|auth/callback).*)'],
 }
